@@ -22,6 +22,9 @@
                 @Html.DisplayNameFor(model => model.PartidosEmpatados)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.PartidosPerdidos)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TotalPuntos)
             </th>
             <th></th>
@@ -45,6 +48,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PartidosEmpatados)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartidosPerdidos)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TotalPuntos)
             </td>

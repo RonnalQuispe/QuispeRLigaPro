@@ -1,51 +1,39 @@
 ﻿using QuispeRLigaPro.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace QuispeRLigaPro.Repositories
 {
     public class EquipoRepository
     {
-        public IEnumerable<Equipo> DevuelveListadoEquipos()
+        private static List<Equipo> _equipos = new List<Equipo>
         {
-            List<Equipo> equipos = new List<Equipo>();
-
-            Equipo ldu = new Equipo
-            {
-                Id = 1,
-                Nombre = "LDU",
-                PartidosJugados = 10,
-                PartidosGanados = 10,
-                PartidosEmpatados = 0,
-                PartidosPerdidos = 0,
-                
-
-            };
-        Equipo bsc = new Equipo
-        {
-            Id = 2,
-            Nombre = "BSC",
-            PartidosJugados = 10,
-            PartidosGanados = 1,
-            PartidosEmpatados = 0,
-            PartidosPerdidos = 6,
-            
-
+            new Equipo { Id = 1, Nombre = "Barcelona", PartidosJugados = 5, PartidosGanados = 3, PartidosEmpatados = 1, PartidosPerdidos = 1 },
+            new Equipo { Id = 2, Nombre = "Liga de Quito", PartidosJugados = 5, PartidosGanados = 2, PartidosEmpatados = 2, PartidosPerdidos = 1 }
         };
-            equipos.Add(ldu);
-            equipos.Add(bsc);
-            equipos = equipos.OrderByDescending(item => item.TotalPuntos).ToList();
-            return equipos;
 
-        }
-        public Equipo DevuelveInformacionEquipo(int Id)
+        public List<Equipo> DevuelveListadoEquipos()
         {
-            var equipos = DevuelveListadoEquipos();
-            var equipo = equipos.First(item => item.Id == Id );
-            return equipo;
+            return _equipos;
+        }
+
+        public Equipo DevuelveInformacionEquipo(int id)
+        {
+            return _equipos.FirstOrDefault(e => e.Id == id);
         }
 
         public bool ActualizarEquipo(Equipo equipo)
         {
-            return true;
+            var equipoExistente = _equipos.FirstOrDefault(e => e.Id == equipo.Id);
+            if (equipoExistente != null)
+            {
+                equipoExistente.PartidosJugados = equipo.PartidosJugados;
+                equipoExistente.PartidosGanados = equipo.PartidosGanados;
+                equipoExistente.PartidosEmpatados = equipo.PartidosEmpatados;
+                equipoExistente.PartidosPerdidos = equipo.PartidosPerdidos;
+                return true;
+            }
+            return false;
         }
-}
+    }
 }

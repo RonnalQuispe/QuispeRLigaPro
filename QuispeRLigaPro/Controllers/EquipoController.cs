@@ -20,24 +20,38 @@ namespace QuispeRLigaPro.Controllers
         }
         public IActionResult EditarEquipo(int Id)
         {
-            EquipoRepository repository = new EquipoRepository();
             var equipo = _repository.DevuelveInformacionEquipo(Id);
             return View(equipo);
-    }
+        }
         [HttpPost]/* guardar informacion */
 
         public IActionResult EditarEquipo(Equipo equipo)
         {
             try
             {
-                var actualizar = _repository.ActualizarEquipo(equipo);
-                return View();
+                var equipoExistente = _repository.DevuelveInformacionEquipo(equipo.Id);
+
+                if (equipoExistente != null)
+                {
+                    equipoExistente.PartidosJugados = equipo.PartidosJugados;
+                    equipoExistente.PartidosGanados = equipo.PartidosGanados;
+                    equipoExistente.PartidosEmpatados = equipo.PartidosEmpatados;
+                    equipoExistente.PartidosPerdidos = equipo.PartidosPerdidos;
+
+                    var actualizado = _repository.ActualizarEquipo(equipoExistente);
+                    return RedirectToAction("List");
+                }
+
+                ViewData["Mensaje"] = "El equipo no fue encontrado.";
+                return View(equipo);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                ViewData["Mensaje"] = "Ocurri un error al actualizar el equipo";
-                return View();
+                ViewData["Mensaje"] = "Ocurrió un error al actualizar el equipo: " + e.Message;
+                return View(equipo);
             }
+
+
         }
     }
 }
