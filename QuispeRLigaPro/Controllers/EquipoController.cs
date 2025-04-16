@@ -47,7 +47,7 @@ namespace QuispeRLigaPro.Controllers
             }
             catch (Exception e)
             {
-                ViewData["Mensaje"] = "Ocurrió un error al actualizar el equipo: " + e.Message;
+                ViewData["Mensaje"] = "Ocurrio un error al actualizar el equipo: " + e.Message;
                 return View(equipo);
             }
 

@@ -8,8 +8,16 @@ namespace QuispeRLigaPro.Repositories
     {
         private static List<Equipo> _equipos = new List<Equipo>
         {
-            new Equipo { Id = 1, Nombre = "Barcelona", PartidosJugados = 5, PartidosGanados = 3, PartidosEmpatados = 1, PartidosPerdidos = 1 },
-            new Equipo { Id = 2, Nombre = "Liga de Quito", PartidosJugados = 5, PartidosGanados = 2, PartidosEmpatados = 2, PartidosPerdidos = 1 }
+            new Equipo { Id = 1, Nombre = "Barcelona", 
+                PartidosJugados = 5, 
+                PartidosGanados = 3, 
+                PartidosEmpatados = 1, 
+                PartidosPerdidos = 1 },
+            new Equipo { Id = 2, Nombre = "Liga de Quito",
+                PartidosJugados = 5, 
+                PartidosGanados = 2,
+                PartidosEmpatados = 2, 
+                PartidosPerdidos = 1 }
         };
 
         public List<Equipo> DevuelveListadoEquipos()
