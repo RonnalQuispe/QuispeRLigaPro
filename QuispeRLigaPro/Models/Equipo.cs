@@ -16,7 +16,14 @@ namespace QuispeRLigaPro.Models
         [Range(0, 100)]
             public int PartidosEmpatados { get; set; }
             public int PartidosPerdidos { get; set; }
-            public int TotalPuntos { get; set; }
+        public int TotalPuntos
+        {
+            get
+            {
+                return (PartidosGanados * 3) + PartidosEmpatados;
+            }
+        }
+
 
 
 

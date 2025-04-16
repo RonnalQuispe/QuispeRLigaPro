@@ -1,8 +1,71 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "ACERCA DE";
 }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* Fondo de imagen para el cuerpo entero */
+        body {
+            background-image: url('https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        
+        .accordion-button {
+            background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente */
+            color: #333;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .accordion-body {
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo mas transparente */
+            color: #333;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .accordion-item {
+            background-color: transparent;
+            border: none;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <strong style="color: #FFFF03;">INFORMACION DEL AUTOR</strong>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Mi nombre es Quispe T. Ronny A.</strong> estudiante de la Universidad de Las Américas "UDLA", cursando el 5to semestre.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <strong style="color: #0000FF;">Descripción de la LIGA PRO -ECUADOR-</strong>
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>¡Descubre la Liga Pro como nunca antes!</strong> Nuestra aplicación web está diseñada para llevar la experiencia del fútbol ecuatoriano a un nuevo nivel. Con un enfoque en la usabilidad y la estética, ofrecemos a los aficionados todas las herramientas necesarias para disfrutar de su liga favorita.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
